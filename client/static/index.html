@@ -1,0 +1,34 @@
+<html>
+<head>
+  <title></title>
+  <style>
+      .sidebar,.list{display: inline-block;vertical-align: top;}
+      .list img{height: 100px; width: 100px;}
+      .product{display: inline-block;vertical-align: top;padding: 20px;}
+
+  </style>
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js'></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
+   <script src="https://cdn.jsdelivr.net/momentjs/2.13.0/moment.min.js"></script>
+
+  <script type='text/javascript'>
+    var myApp = angular.module('myApp', ['ngRoute','ngMessages']);
+    myApp.constant('moment', moment);
+  </script>
+  <script type='text/javascript' src='./js/AppConfig.js'></script>
+  <script type='text/javascript' src='./js/CustomerFactory.js'></script>
+  <script type='text/javascript' src='./js/ProductFactory.js'></script>
+  <script type='text/javascript' src='./js/OrderFactory.js'></script>
+  <script type='text/javascript' src='./js/CustomerController.js'></script>
+  <script type='text/javascript' src='./js/ProductController.js'></script>
+  <script type='text/javascript' src='./js/OrderController.js'></script>
+  <script type='text/javascript' src='./js/DashboardController.js'></script>
+</head>
+<body ng-app='myApp'>
+   <a href="#/">Dashboard</a> | <a href="#/products">Products</a> | <a href="#/orders">Orders</a> | <a href="#/customers">Customers</a>
+    <div ng-view=''>
+
+    </div>
+</body>
+</html>
