@@ -3,7 +3,7 @@
     <input type="text" ng-model='filter_name' placeholder="search...">
   </div>
   <div class="list">
-    <div class='product' ng-repeat='product in products | filter: filter_name'>
+    <div class='product' ng-repeat='product in products | filter: filter_name | limitTo:3'>
       <img src="{{product.image}}" alt="product" /><br>
       <p ng-bind='product.name'></p><br>
       <p>({{product.qty}} left)</p>
@@ -12,12 +12,12 @@
   </div>
     <div class="orderlist">
       <h4>Recent Orders</h4>
-      <p ng-repeat='order in orders'>{{order.name}} purchased {{order.qty}} {{order.product}} ({{order.createdAt |date:"MMMM dd yyyy 'at' h:mma"}} )</p>
+      <p ng-repeat="order in orders | orderBy:'-createdAt' | limitTo: 3 ">{{order.name}} purchased {{order.qty}} {{order.product}} ({{order.createdAt |date:"MMMM dd yyyy 'at' h:mma"}} )</p>
       <a href="#/orders">show all orders..</a>
     </div>
     <div class="customerlist">
       <h4>New Customers</h4>
-      <p ng-repeat='customer in customers'>{{customer.name}} joined the store ({{customer.createdAt |date:"MMMM dd yyyy 'at' h:mma"}}) </p>
+      <p ng-repeat="customer in customers | orderBy:'-createdAt' | limitTo: 3 ">{{customer.name}} joined the store ({{customer.createdAt |date:"MMMM dd yyyy 'at' h:mma"}}) </p>
     </div>
     <a href="#/customers">show all customers..</a>
 </div>
